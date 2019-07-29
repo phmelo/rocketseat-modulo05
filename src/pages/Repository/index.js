@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../../services/api';
+import Container from '../../components/Container';
+// import Carregando from '../../components/Loading';
 
-// import { Container } from './styles';
+import { Loading } from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -43,6 +45,9 @@ export default class Repository extends Component {
 
   render() {
     const { repository, issues, loading } = this.state;
-    return <h1>Repository</h1>;
+    if (loading) {
+      return <Loading>Carregando</Loading>;
+    }
+    return <Container>Repository</Container>;
   }
 }
